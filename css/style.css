@@ -1,0 +1,37 @@
+fieldset, legend {
+    background-color: grey;
+}
+
+label {
+    display: block;
+    width: 100px;
+    float: left;
+}
+
+.error {
+    font-family: 'Arial', sans-serif;
+    background-color: red;
+    font-size: 24px;
+}
+
+#error_span {
+    text-align: center;
+}
+
+.viewInfo {
+    font-family: "Times", sans-serif;
+    border: 1px solid grey;
+    width: 500px;
+    overflow: auto;
+}
+
+#viewText {
+    width: inherit;
+}
+
+.open {
+    font-size: 18px;
+    font-family: "Arial", sans-serif;
+    color: darkblue;
+    text-decoration: none;
+}

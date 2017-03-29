@@ -1,0 +1,28 @@
+<form name="emailForm">
+    <fieldset>
+        <legend>Merci de renseigner chaque champs</legend>
+        <label for="username">Nom: </label><input class="input_mail" type="text" name="username" id="username" ng-model="username.model" ng-pattern="username.regex" required/>
+        <br/>
+        <label for="email">Email: </label>
+        <input class="input_mail" type="email" name="email" id="email" ng-model="email.model" ng-pattern="email.regex" required/>
+        <br/>
+        <label for="subject">Sujet: </label>                 
+        <input class="input_mail" type="text" name="subject" id="subject" ng-model="subject.model" ng-pattern="subject.regex" required/>
+        <br/>
+        <label for="someText">Texte: </label>
+        <textarea class="input_mail" name="someText" id="someText" rows="4" cols="50" ng-model="someText.model" ng-pattern="someText.regex" required></textarea>
+    </fieldset>
+    <div>   <!-- Le bouton s'affiche si les inputs sont tous valides, et au click execute une fonction qui envoie dans un tableau les modèles -->
+        <span ng-show="emailForm.$valid"><button type="button" name="button" id="post" ng-click="buttonClick()">Envoyer</button></span>
+        <!-- Ici s'affiche les différents messages d'erreur selon les conditions -->
+        <p id="error_span"><span class="error" ng-show="emailForm.email.$error.pattern || emailForm.email.$error.required">Attention, email manquant ou mal saisi !<br/></span>
+            <span class="error" ng-show="emailForm.username.$error.pattern || emailForm.username.$error.required">Attention, nom manquant ou mal saisi !<br/></span>
+            <span class="error" ng-show="emailForm.subject.$error.pattern || emailForm.subject.$error.required">Attention, sujet manquant ou mal saisi !<br/></span>
+            <span class="error" ng-show="emailForm.someText.$error.pattern || emailForm.someText.$error.required">Attention, texte manquant ou mal saisi !<br/></span></p>
+    </div>
+    <!-- Répéte le tableau au click du bouton dans cette div en affichant le sujet seulement -->
+    <div ng-repeat='subject in subjects'>
+        <!-- Au click envoie à l'url viewmail + le $index qui défini la position dans le tableau -->
+        <a href="#!/viewmail/{{$index}}" class="open">Afficher: {{subject.subject}}</a>
+    </div>
+</form>
